@@ -1,0 +1,547 @@
+.section {
+  padding: var(--spacing-4xl) 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-elevated) 50%, var(--color-bg) 100%);
+}
+
+.bgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(16, 185, 129, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  opacity: 0;
+}
+
+.headerBadge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 50px;
+  color: var(--color-primary-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-md);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.02em;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* Phones Row */
+.phonesRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .phonesRow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.phoneColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+}
+
+.phoneCenter {
+  transform: translateY(-12px);
+}
+
+@media (max-width: 1100px) {
+  .phoneCenter {
+    transform: none;
+  }
+}
+
+.stepNumber {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+.stepLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.stepDesc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Flow Arrow */
+.flowArrow {
+  color: var(--color-primary);
+  opacity: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1100px) {
+  .flowArrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* Phone Frame */
+.phoneFrame {
+  width: 240px;
+  height: 490px;
+  background: #1a1a2e;
+  border-radius: 34px;
+  padding: 7px;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-slow);
+}
+
+.phoneFrameCenter {
+  width: 260px;
+  height: 530px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(16, 185, 129, 0.08);
+}
+
+.phoneDynamic {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: #000;
+  border-radius: 16px;
+  z-index: 20;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  background: #0f0f1a;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phoneScreenCall {
+  background: linear-gradient(180deg, #0a3d28 0%, #0d2818 50%, #0a1f14 100%);
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px 4px;
+  flex-shrink: 0;
+}
+
+.statusTime {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: white;
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ===== PHONE 1: HOME ===== */
+.screenBody {
+  flex: 1;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.homeHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 12px;
+}
+
+.homeTitle {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #10b981;
+}
+
+.homeAvatar {
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeGreeting {
+  margin-bottom: 14px;
+}
+
+.greetingText {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+}
+
+.greetingSub {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 2px;
+}
+
+.homeActions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.homeAction {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.homeActionPrimary {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+  border-color: rgba(16, 185, 129, 0.2);
+  color: white;
+}
+
+/* Bottom Tab */
+.bottomTab {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+
+.tabItem {
+  color: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.tabActive {
+  color: #10b981;
+}
+
+/* ===== PHONE 2: SCANNER ===== */
+.scanScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+.scanTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.scanSubtitle {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+}
+
+.scanViewfinder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.scanFrame {
+  width: 170px;
+  height: 170px;
+  position: relative;
+  background: rgba(16, 185, 129, 0.04);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.scanCorner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.scanTL {
+  top: 0;
+  left: 0;
+  border-top: 3px solid #10b981;
+  border-left: 3px solid #10b981;
+  border-radius: 6px 0 0 0;
+}
+
+.scanTR {
+  top: 0;
+  right: 0;
+  border-top: 3px solid #10b981;
+  border-right: 3px solid #10b981;
+  border-radius: 0 6px 0 0;
+}
+
+.scanBL {
+  bottom: 0;
+  left: 0;
+  border-bottom: 3px solid #10b981;
+  border-left: 3px solid #10b981;
+  border-radius: 0 0 0 6px;
+}
+
+.scanBR {
+  bottom: 0;
+  right: 0;
+  border-bottom: 3px solid #10b981;
+  border-right: 3px solid #10b981;
+  border-radius: 0 0 6px 0;
+}
+
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0) 0%, rgba(16, 185, 129, 0.35) 70%, #34d399 100%);
+  border-bottom: 2px solid #34d399;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.8), 0 4px 12px rgba(16, 185, 129, 0.5);
+  animation: scanBeam 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scanBeam {
+  0% {
+    transform: translateY(-60px);
+  }
+  50% {
+    transform: translateY(170px);
+  }
+  100% {
+    transform: translateY(-60px);
+  }
+}
+
+.scanHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border-radius: 8px;
+  margin-top: 16px;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== PHONE 3: CALLING ===== */
+.callingScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px 28px;
+}
+
+.callingPulse {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pulseRing {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  border-radius: 50%;
+  animation: ringPulse 2s ease-out infinite;
+}
+
+.pulseRing:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.callingAvatar {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.callingName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.callingStatus {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 16px;
+}
+
+.callingDot {
+  width: 4px;
+  height: 4px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.callingDot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.callingDot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.privacyBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 50px;
+  font-size: 0.55rem;
+  color: #34d399;
+  margin-bottom: 24px;
+}
+
+.callActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.callAction {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.callEnd {
+  width: 56px;
+  height: 56px;
+  background: #ef4444;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .phoneFrame {
+    width: 220px;
+    height: 450px;
+  }
+
+  .phoneFrameCenter {
+    width: 240px;
+    height: 490px;
+  }
+}
+
+@media (max-width: 500px) {
+  .phoneFrame,
+  .phoneFrameCenter {
+    width: 220px;
+    height: 450px;
+  }
+}
